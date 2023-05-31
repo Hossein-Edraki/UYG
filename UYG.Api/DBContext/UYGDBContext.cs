@@ -5,12 +5,12 @@ namespace UYG.Api.DBContext
 {
     public class UYGDBContext : DbContext
     {
-        public UYGDBContext()
+        public UYGDBContext(DbContextOptions<UYGDBContext> options)
+            : base(options)
         {
-            
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<DBContext.Models.Task> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
