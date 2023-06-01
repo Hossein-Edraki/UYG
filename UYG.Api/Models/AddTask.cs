@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using UYG.Api.Common;
 
 namespace UYG.Api.Models
 {
@@ -17,5 +18,7 @@ namespace UYG.Api.Models
     }
     public class AddTaskResponse
     {
+        public Response ResponseCode { get; set; }
+        public string ResponseMessage { get; set; }
     }
 }

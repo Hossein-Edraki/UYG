@@ -19,38 +19,83 @@ namespace UYG.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] AddTaskRequest request)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest();
 
-            var response = await _taskService.Add(request);
-            return Ok();
+            var response = new AddTaskResponse
+            {
+                ResponseCode = Common.Response.InProgress,
+                ResponseMessage = Common.Response.InProgress.ToString()
+            };
+
+            var result = await _taskService.Add(request);
+            if (result <= 0)
+            {
+                response.ResponseCode = Common.Response.Fail;
+                response.ResponseMessage = Common.Response.Fail.ToString();
+                return BadRequest(response);
+            }
+
+            response.ResponseCode = Common.Response.Success;
+            response.ResponseMessage = Common.Response.Success.ToString();
+            return Ok(response);
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             var response = await _taskService.Get();
-            return Ok();
+            return Ok(response);
         }
 
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateTaskRequest request)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest();
 
-            var response = await _taskService.Update(request);
-            return Ok();
+            var response = new AddTaskResponse
+            {
+                ResponseCode = Common.Response.InProgress,
+                ResponseMessage = Common.Response.InProgress.ToString()
+            };
+
+            var result = await _taskService.Update(request);
+            if (result <= 0)
+            {
+                response.ResponseCode = Common.Response.Fail;
+                response.ResponseMessage = Common.Response.Fail.ToString();
+                return BadRequest(response);
+            }
+
+            response.ResponseCode = Common.Response.Success;
+            response.ResponseMessage = Common.Response.Success.ToString();
+            return Ok(response);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute, Required] int id)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest();
 
-            var response = await _taskService.Delete(id);
-            return Ok();
+            var response = new AddTaskResponse
+            {
+                ResponseCode = Common.Response.InProgress,
+                ResponseMessage = Common.Response.InProgress.ToString()
+            };
+
+            var result = await _taskService.Delete(id);
+            if (result <= 0)
+            {
+                response.ResponseCode = Common.Response.Fail;
+                response.ResponseMessage = Common.Response.Fail.ToString();
+                return BadRequest(response);
+            }
+
+            response.ResponseCode = Common.Response.Success;
+            response.ResponseMessage = Common.Response.Success.ToString();
+            return Ok(response);
         }
     }
 }

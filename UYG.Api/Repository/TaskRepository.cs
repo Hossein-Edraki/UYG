@@ -31,7 +31,7 @@ namespace UYG.Api.Repository
                     new SqlParameter("@Priority", SqlDbType.Int) { Value = task.Priority },
                     new SqlParameter("@Status", SqlDbType.TinyInt) { Value = task.Status }
             };
-            var result = await _dbcontext.Database.ExecuteSqlRawAsync("EXEC A @Name,@Description,@Date,@Priority,@Status", parameters);
+            var result = await _dbcontext.Database.ExecuteSqlRawAsync("EXEC usp_Task_Insert @Name,@Description,@Date,@Priority,@Status", parameters);
             return result;
         }
 
@@ -46,7 +46,7 @@ namespace UYG.Api.Repository
                     new SqlParameter("@Priority", SqlDbType.Int) { Value = task.Priority },
                     new SqlParameter("@Status", SqlDbType.TinyInt) { Value = task.Status }
             };
-            var result = await _dbcontext.Database.ExecuteSqlRawAsync("EXEC A @Id,@Name,@Description,@Date,@Priority,@Status", parameters);
+            var result = await _dbcontext.Database.ExecuteSqlRawAsync("EXEC usp_Task_Update @Id,@Name,@Description,@Date,@Priority,@Status", parameters);
             return result;
         }
 
@@ -56,13 +56,13 @@ namespace UYG.Api.Repository
             {
                     new SqlParameter("@Id", SqlDbType.Int) { Value = id },
             };
-            var result = await _dbcontext.Database.ExecuteSqlRawAsync("EXEC A @Id", parameters);
+            var result = await _dbcontext.Database.ExecuteSqlRawAsync("EXEC usp_Task_Delete @Id", parameters);
             return result;
         }
 
         public async Task<List<DBContext.Models.Task>> Get()
         {
-            var result = await _dbcontext.Tasks.FromSqlRaw("EXEC A").ToListAsync();
+            var result = await _dbcontext.Tasks.FromSqlRaw("EXEC usp_Task_Select").ToListAsync();
             return result;
         }
     }

@@ -3937,23 +3937,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hedraki\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Hossein\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UYG\\UYG.Api\\UYG.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Hossein\\Desktop\\UYG\\UYG.Api\\UYG.Api.csproj",
       "projectName": "UYG.Api",
-      "projectPath": "D:\\UYG\\UYG.Api\\UYG.Api.csproj",
-      "packagesPath": "C:\\Users\\hedraki\\.nuget\\packages\\",
-      "outputPath": "D:\\UYG\\UYG.Api\\obj\\",
+      "projectPath": "C:\\Users\\Hossein\\Desktop\\UYG\\UYG.Api\\UYG.Api.csproj",
+      "packagesPath": "C:\\Users\\Hossein\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hossein\\Desktop\\UYG\\UYG.Api\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\hedraki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hossein\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3961,8 +3957,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://sonatype.spsplan.local/repository/nuget-group/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
